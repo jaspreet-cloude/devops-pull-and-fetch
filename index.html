@@ -86,6 +86,18 @@
     .product-detail { margin-top: 4px; color: var(--muted); font-size: 10px; }
     .product-price { flex-shrink: 0; }
 
+    .profile-section { padding-top: 20px; }
+    .profile-shell { display: grid; grid-template-columns: 1.05fr .95fr; background: #f2efe8; border: 1px solid var(--line); }
+    .profile-image { min-height: 360px; }
+    .profile-image img { display: block; width: 100%; height: 100%; min-height: 360px; object-fit: cover; }
+    .profile-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(32px, 5vw, 72px); }
+    .profile-copy h2 { max-width: 360px; margin: 0; font: 500 clamp(30px, 3vw, 44px)/1.08 var(--serif); letter-spacing: -.025em; }
+    .profile-copy p:not(.eyebrow) { max-width: 360px; margin: 16px 0 20px; color: #55594c; font-size: 12px; line-height: 1.8; }
+    .profile-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin-top: 10px; }
+    .profile-point { padding-top: 12px; border-top: 1px solid var(--line); }
+    .profile-point strong { display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .profile-point span { color: var(--muted); font-size: 11px; }
+
     .story { display: grid; grid-template-columns: 1fr 1fr; min-height: 390px; background: var(--green); }
     .story-image { min-height: 390px; }
     .story-image img { display: block; width: 100%; height: 100%; min-height: 390px; object-fit: cover; }
@@ -180,6 +192,9 @@
       .quick-add { right: 7px; bottom: 7px; left: 7px; min-height: 35px; font-size: 9px; }
       .product-info { padding-top: 9px; font-size: 10px; }
       .product-detail { font-size: 9px; }
+      .profile-shell { grid-template-columns: 1fr; }
+      .profile-image, .profile-image img { min-height: 280px; }
+      .profile-points { grid-template-columns: 1fr 1fr; }
       .story { grid-template-columns: 1fr; }
       .story-image, .story-image img { min-height: 280px; max-height: 350px; }
       .story-copy { padding: 38px 25px 43px; }
@@ -197,13 +212,13 @@
   <div class="announcement">A little something for your first order: <strong>&nbsp;15% off with HELLOSUNDAY</strong></div>
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <div class="nav-links"><a href="#new">New in</a><a href="#shop">Shop all</a><a href="#story">Our story</a></div>
+      <div class="nav-links"><a href="#new">New in</a><a href="#shop">Shop all</a><a href="#profile">Profile</a><a href="#story">Our story</a></div>
       <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="mobileLinks">Menu</button>
       <a class="brand" href="#top" aria-label="Sunday Supply home">SUNDAY<span>.</span>SUPPLY</a>
       <div class="nav-actions"><button class="plain-button search-trigger" type="button" aria-expanded="false">Search</button><button class="plain-button bag-button" type="button" aria-label="Open shopping bag">Bag <span class="bag-count" aria-live="polite">0</span></button></div>
     </nav>
     <div class="search-panel" role="search"><input type="search" placeholder="Looking for something?" aria-label="Search products"><button class="search-close" type="button">Close</button></div>
-    <div class="mobile-links" id="mobileLinks"><a href="#new">New in</a><a href="#shop">Shop all</a><a href="#story">Our story</a></div>
+    <div class="mobile-links" id="mobileLinks"><a href="#new">New in</a><a href="#shop">Shop all</a><a href="#profile">Profile</a><a href="#story">Our story</a></div>
   </header>
 
   <main id="top">
@@ -252,6 +267,23 @@
           <div class="product-image"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Everyday canvas tote bag" loading="lazy"><span class="product-tag">Almost gone</span><button class="quick-add" type="button">Add to bag · $54</button></div>
           <div class="product-info"><div><div class="product-name">Out All Day Tote</div><div class="product-detail">Recycled canvas · Natural</div></div><span class="product-price">$54</span></div>
         </article>
+      </div>
+    </section>
+
+    <section class="section profile-section" id="profile" aria-labelledby="profile-title">
+      <div class="profile-shell">
+        <div class="profile-image"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=85" alt="Profile portrait of a person styled in relaxed everyday layers" loading="lazy"></div>
+        <div class="profile-copy">
+          <p class="eyebrow">Profile</p>
+          <h2 id="profile-title">Thoughtful essentials for the way you actually live.</h2>
+          <p>We design with ease in mind: lighter layers, richer colors, and pieces that transition from errands to dinner without needing a second thought.</p>
+          <div class="profile-points">
+            <div class="profile-point"><strong>Approach</strong><span>Small-batch, practical, easy to wear.</span></div>
+            <div class="profile-point"><strong>Palette</strong><span>Warm neutrals, soft red, blue, and green.</span></div>
+            <div class="profile-point"><strong>Materials</strong><span>Natural blends and easy cotton textures.</span></div>
+            <div class="profile-point"><strong>Style</strong><span>Polished without trying too hard.</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
