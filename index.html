@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Thoughtful pieces for getting dressed and getting out there. Discover the latest from Sunday Supply.">
+  <title>Sunday Supply — Wear the good days</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f6f2;
+      --ink: #252621;
+      --muted: #74756e;
+      --line: #deded6;
+      --red: #d64b35;
+      --blue: #c8d6ee;
+      --green: #d9dfc9;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.5 var(--sans); }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; }
+    .announcement { display: flex; justify-content: center; align-items: center; min-height: 34px; padding: 6px 16px; background: var(--ink); color: #fff; text-align: center; font-size: 10px; letter-spacing: .06em; }
+    .announcement strong { color: #efb7a9; font-weight: 600; }
+    .site-header { position: relative; z-index: 5; background: var(--paper); }
+    .nav { width: min(1320px, calc(100% - 72px)); height: 78px; margin: auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; border-bottom: 1px solid var(--line); }
+    .nav-links, .nav-actions { display: flex; align-items: center; gap: 27px; }
+    .nav-links a, .nav-actions button { font-size: 12px; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover, .nav-actions button:hover { color: var(--red); }
+    .brand { font-size: 19px; line-height: 1; font-weight: 700; letter-spacing: .14em; text-align: center; }
+    .brand span { color: var(--red); }
+    .nav-actions { justify-content: flex-end; gap: 20px; }
+    .plain-button { padding: 7px 0; border: 0; background: none; cursor: pointer; }
+    .bag-button { display: flex; gap: 6px; align-items: center; }
+    .bag-count { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; background: var(--red); color: #fff; font-size: 10px; }
+    .mobile-menu { display: none; }
+
+    .hero { width: min(1320px, calc(100% - 72px)); margin: 28px auto 0; min-height: 530px; display: grid; grid-template-columns: .91fr 1.09fr; overflow: hidden; background: #e9e5dd; }
+    .hero-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(34px, 7vw, 100px); }
+    .eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 24px; color: var(--red); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+    .eyebrow::before { content: ""; width: 20px; height: 1px; background: currentColor; }
+    h1 { max-width: 450px; margin: 0; font: 500 clamp(48px, 6.3vw, 84px)/.99 var(--serif); letter-spacing: -.035em; }
+    h1 em { color: var(--red); font-weight: 500; }
+    .hero-description { max-width: 300px; margin: 22px 0 27px; color: #60615b; font-size: 13px; line-height: 1.8; }
+    .button-primary { display: inline-flex; justify-content: center; align-items: center; gap: 22px; min-height: 48px; padding: 0 20px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 11px; transition: background .2s, color .2s; }
+    .button-primary:hover { background: transparent; color: var(--ink); }
+    .button-primary .arrow { font-size: 17px; line-height: 0; }
+    .hero-image { position: relative; min-height: 530px; background: #aaa08f; }
+    .hero-image img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; object-position: center 38%; }
+    .image-note { position: absolute; right: 18px; bottom: 18px; padding: 9px 13px; background: var(--paper); font-size: 10px; }
+
+    .ticker { overflow: hidden; margin: 0 auto; border-bottom: 1px solid var(--line); }
+    .ticker-inner { width: min(1320px, calc(100% - 72px)); min-height: 59px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #5b5c55; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .ticker-item { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .ticker-star { color: var(--red); font-size: 17px; }
+    .section { width: min(1320px, calc(100% - 72px)); margin: 0 auto; }
+    .shop-section { padding: 95px 0 90px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 29px; }
+    .section-heading .eyebrow { margin-bottom: 11px; }
+    h2 { margin: 0; font: 500 clamp(34px, 4.2vw, 53px)/1.07 var(--serif); letter-spacing: -.025em; }
+    .section-intro { max-width: 260px; margin: 0 0 4px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .filters { display: flex; gap: 7px; margin-bottom: 24px; }
+    .filter-button { min-height: 34px; padding: 0 14px; border: 1px solid var(--line); border-radius: 20px; background: transparent; color: #64655e; font-size: 10px; cursor: pointer; transition: all .2s; }
+    .filter-button:hover, .filter-button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
+    .product-card { min-width: 0; animation: appear .35s both; }
+    .product-image { position: relative; aspect-ratio: 3 / 3.8; overflow: hidden; background: #e5e3dc; }
+    .product-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+    .product-card:hover .product-image img { transform: scale(1.035); }
+    .product-tag { position: absolute; top: 12px; left: 12px; padding: 6px 9px; background: var(--paper); font-size: 9px; letter-spacing: .03em; }
+    .quick-add { position: absolute; right: 10px; bottom: 10px; left: 10px; min-height: 39px; border: 0; background: var(--paper); font-size: 10px; cursor: pointer; transition: background .2s, color .2s; }
+    .quick-add:hover { background: var(--ink); color: white; }
+    .product-info { display: flex; justify-content: space-between; gap: 8px; padding-top: 12px; font-size: 11px; }
+    .product-name { font-weight: 600; }
+    .product-detail { margin-top: 4px; color: var(--muted); font-size: 10px; }
+    .product-price { flex-shrink: 0; }
+
+    .story { display: grid; grid-template-columns: 1fr 1fr; min-height: 390px; background: var(--green); }
+    .story-image { min-height: 390px; }
+    .story-image img { display: block; width: 100%; height: 100%; min-height: 390px; object-fit: cover; }
+    .story-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(35px, 7vw, 95px); }
+    .story-copy h2 { max-width: 400px; }
+    .story-copy p:not(.eyebrow) { max-width: 340px; margin: 18px 0 25px; color: #55594c; font-size: 12px; line-height: 1.8; }
+    .text-link { display: inline-flex; gap: 12px; align-items: center; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-size: 11px; }
+    .newsletter { padding: 84px 20px 88px; text-align: center; }
+    .newsletter .eyebrow { justify-content: center; margin-bottom: 14px; }
+    .newsletter h2 { font-size: clamp(34px, 4vw, 48px); }
+    .newsletter > p:not(.eyebrow) { margin: 12px 0 23px; color: var(--muted); font-size: 12px; }
+    .signup-form { display: flex; width: min(410px, 100%); margin: auto; border-bottom: 1px solid var(--ink); }
+    .signup-form input { flex: 1; min-width: 0; height: 45px; border: 0; outline: 0; background: transparent; font-size: 11px; }
+    .signup-form button { padding: 0 4px 0 15px; border: 0; background: none; font-size: 11px; cursor: pointer; }
+    .signup-message { min-height: 20px; margin: 8px 0 0; color: var(--red); font-size: 11px; }
+    footer { border-top: 1px solid var(--line); }
+    .footer-inner { width: min(1320px, calc(100% - 72px)); min-height: 115px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .footer-brand { font-size: 14px; }
+    .footer-note, .footer-links { color: var(--muted); font-size: 10px; }
+    .footer-links { display: flex; gap: 20px; }
+
+    .overlay { position: fixed; z-index: 10; inset: 0; background: rgb(24 24 21 / 42%); opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+    .overlay.is-open { opacity: 1; visibility: visible; }
+    .cart-drawer { position: fixed; z-index: 11; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(420px, 100%); padding: 25px; background: var(--paper); transform: translateX(100%); transition: transform .3s ease; }
+    .cart-drawer.is-open { transform: translateX(0); }
+    .cart-heading { display: flex; justify-content: space-between; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .cart-heading h2 { font-size: 29px; }
+    .close-cart { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 18px; cursor: pointer; }
+    .cart-items { flex: 1; overflow: auto; }
+    .empty-cart { margin-top: 28px; color: var(--muted); font-size: 12px; }
+    .cart-item { display: grid; grid-template-columns: 68px 1fr auto; gap: 13px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .cart-item img { width: 68px; height: 82px; object-fit: cover; }
+    .cart-item-name { font-size: 11px; font-weight: 600; }
+    .cart-item-price { margin-top: 5px; color: var(--muted); font-size: 10px; }
+    .quantity-control { display: flex; align-items: center; gap: 12px; margin-top: 12px; font-size: 11px; }
+    .quantity-control button { width: 22px; height: 22px; border: 1px solid var(--line); border-radius: 50%; background: none; cursor: pointer; }
+    .remove-item { align-self: start; padding: 4px; border: 0; background: none; color: var(--muted); font-size: 10px; cursor: pointer; }
+    .cart-bottom { padding-top: 18px; border-top: 1px solid var(--line); }
+    .cart-subtotal { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 12px; }
+    .checkout-button { width: 100%; min-height: 48px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 11px; cursor: pointer; }
+    .checkout-button:hover { background: transparent; color: var(--ink); }
+    .toast { position: fixed; z-index: 20; right: 24px; bottom: 24px; padding: 12px 17px; background: var(--ink); color: white; font-size: 11px; opacity: 0; transform: translateY(8px); pointer-events: none; transition: .2s; }
+    .toast.is-visible { opacity: 1; transform: translateY(0); }
+    .search-panel { display: none; position: absolute; z-index: 6; top: 78px; right: 0; left: 0; padding: 18px max(36px, calc((100% - 1320px) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+    .search-panel.is-open { display: flex; }
+    .search-panel input { flex: 1; min-width: 0; height: 42px; border: 0; border-bottom: 1px solid var(--ink); outline: 0; background: transparent; font-size: 14px; }
+    .search-close { margin-left: 18px; border: 0; background: none; cursor: pointer; }
+    .mobile-links { display: none; }
+    @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (min-width: 1500px) { .hero, .section, .nav, .ticker-inner, .footer-inner { width: min(1380px, calc(100% - 100px)); } }
+    @media (max-width: 900px) {
+      .nav, .hero, .section, .ticker-inner, .footer-inner { width: calc(100% - 48px); }
+      .hero { min-height: 450px; grid-template-columns: .95fr 1.05fr; }
+      .hero-image { min-height: 450px; }
+      .hero-copy { padding: 36px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 14px; }
+      .shop-section { padding: 72px 0; }
+      .ticker-inner { justify-content: center; }
+      .ticker-item:nth-child(even) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .announcement { min-height: 32px; font-size: 9px; }
+      .nav { width: calc(100% - 36px); height: 64px; grid-template-columns: 1fr auto 1fr; }
+      .nav-links { display: none; }
+      .brand { justify-self: center; font-size: 16px; }
+      .nav-actions { gap: 13px; }
+      .nav-actions .search-trigger { display: none; }
+      .mobile-menu { display: inline-flex; justify-content: flex-start; border: 0; background: none; font-size: 11px; cursor: pointer; }
+      .search-panel { top: 64px; padding: 12px 18px; }
+      .mobile-links { position: absolute; z-index: 7; top: 64px; right: 0; left: 0; display: none; padding: 7px 18px 15px; background: var(--paper); border-bottom: 1px solid var(--line); }
+      .mobile-links.is-open { display: grid; }
+      .mobile-links a { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
+      .hero { width: calc(100% - 24px); margin-top: 12px; display: flex; flex-direction: column-reverse; }
+      .hero-image { min-height: 380px; }
+      .hero-copy { min-height: 340px; padding: 35px 27px 39px; }
+      .eyebrow { margin-bottom: 17px; }
+      h1 { max-width: 370px; font-size: clamp(49px, 13vw, 70px); }
+      .hero-description { margin: 15px 0 20px; }
+      .ticker-inner { width: calc(100% - 28px); min-height: 48px; justify-content: space-around; font-size: 8px; letter-spacing: .04em; }
+      .ticker-item { gap: 5px; }
+      .ticker-item:last-child { display: none; }
+      .section { width: calc(100% - 32px); }
+      .shop-section { padding: 59px 0 63px; }
+      .section-heading { display: block; margin-bottom: 21px; }
+      .section-intro { margin-top: 10px; }
+      .filters { gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+      .filter-button { flex-shrink: 0; padding: 0 12px; }
+      .product-grid { gap: 22px 10px; }
+      .product-image { aspect-ratio: 3 / 3.9; }
+      .product-tag { top: 8px; left: 8px; padding: 5px 7px; font-size: 8px; }
+      .quick-add { right: 7px; bottom: 7px; left: 7px; min-height: 35px; font-size: 9px; }
+      .product-info { padding-top: 9px; font-size: 10px; }
+      .product-detail { font-size: 9px; }
+      .story { grid-template-columns: 1fr; }
+      .story-image, .story-image img { min-height: 280px; max-height: 350px; }
+      .story-copy { padding: 38px 25px 43px; }
+      .newsletter { padding: 65px 20px 70px; }
+      .footer-inner { width: calc(100% - 36px); min-height: 145px; flex-wrap: wrap; align-content: center; row-gap: 12px; }
+      .footer-brand { width: 100%; }
+      .footer-note { font-size: 9px; }
+      .footer-links { gap: 13px; font-size: 9px; }
+      .toast { right: 12px; bottom: 12px; left: 12px; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="announcement">A little something for your first order: <strong>&nbsp;15% off with HELLOSUNDAY</strong></div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-links"><a href="#new">New in</a><a href="#shop">Shop all</a><a href="#story">Our story</a></div>
+      <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="mobileLinks">Menu</button>
+      <a class="brand" href="#top" aria-label="Sunday Supply home">SUNDAY<span>.</span>SUPPLY</a>
+      <div class="nav-actions"><button class="plain-button search-trigger" type="button" aria-expanded="false">Search</button><button class="plain-button bag-button" type="button" aria-label="Open shopping bag">Bag <span class="bag-count" aria-live="polite">0</span></button></div>
+    </nav>
+    <div class="search-panel" role="search"><input type="search" placeholder="Looking for something?" aria-label="Search products"><button class="search-close" type="button">Close</button></div>
+    <div class="mobile-links" id="mobileLinks"><a href="#new">New in</a><a href="#shop">Shop all</a><a href="#story">Our story</a></div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="new" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">The easy-days edit</p>
+        <h1 id="hero-title">Wear the <em>good</em> days.</h1>
+        <p class="hero-description">Considered pieces, made for wherever the day takes you. A little color never hurt, either.</p>
+        <a class="button-primary" href="#shop">Meet your new favorites <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1300&q=85" alt="Model in a relaxed, colorful everyday look" fetchpriority="high">
+        <span class="image-note">A little more you, every day.</span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Our values">
+      <div class="ticker-inner"><span class="ticker-item"><span class="ticker-star">✳</span> Thoughtfully chosen</span><span class="ticker-item"><span class="ticker-star">✳</span> Made to be worn on repeat</span><span class="ticker-item"><span class="ticker-star">✳</span> Free shipping over $75</span><span class="ticker-item"><span class="ticker-star">✳</span> Good things, good people</span></div>
+    </div>
+
+    <section class="section shop-section" id="shop" aria-labelledby="shop-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Your next everyday thing</p><h2 id="shop-title">The good stuff.</h2></div>
+        <p class="section-intro">Keep the pieces you reach for close. Meet the current favorites.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter products">
+        <button class="filter-button" type="button" aria-pressed="true" data-filter="all">Everything</button>
+        <button class="filter-button" type="button" aria-pressed="false" data-filter="tops">Tops</button>
+        <button class="filter-button" type="button" aria-pressed="false" data-filter="bottoms">Bottoms</button>
+        <button class="filter-button" type="button" aria-pressed="false" data-filter="accessories">Accessories</button>
+      </div>
+      <div class="product-grid">
+        <article class="product-card" data-category="tops" data-name="Sunday Stripe Shirt" data-price="68" data-image="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=80">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=80" alt="Relaxed striped shirt in warm neutral tones" loading="lazy"><span class="product-tag">Bestseller</span><button class="quick-add" type="button">Add to bag · $68</button></div>
+          <div class="product-info"><div><div class="product-name">Sunday Stripe Shirt</div><div class="product-detail">Organic cotton · Blue stripe</div></div><span class="product-price">$68</span></div>
+        </article>
+        <article class="product-card" data-category="bottoms" data-name="Easy Does It Trousers" data-price="92" data-image="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Easy, tailored everyday trousers" loading="lazy"><span class="product-tag">New color</span><button class="quick-add" type="button">Add to bag · $92</button></div>
+          <div class="product-info"><div><div class="product-name">Easy Does It Trousers</div><div class="product-detail">Linen blend · Oat</div></div><span class="product-price">$92</span></div>
+        </article>
+        <article class="product-card" data-category="tops" data-name="The Weekend Tee" data-price="42" data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Soft cotton tee in a muted pink shade" loading="lazy"><span class="product-tag">Just right</span><button class="quick-add" type="button">Add to bag · $42</button></div>
+          <div class="product-info"><div><div class="product-name">The Weekend Tee</div><div class="product-detail">Recycled cotton · Rose</div></div><span class="product-price">$42</span></div>
+        </article>
+        <article class="product-card" data-category="accessories" data-name="Out All Day Tote" data-price="54" data-image="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Everyday canvas tote bag" loading="lazy"><span class="product-tag">Almost gone</span><button class="quick-add" type="button">Add to bag · $54</button></div>
+          <div class="product-info"><div><div class="product-name">Out All Day Tote</div><div class="product-detail">Recycled canvas · Natural</div></div><span class="product-price">$54</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section story" id="story" aria-labelledby="story-title">
+      <div class="story-image"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=85" alt="Friends spending a sunny afternoon together" loading="lazy"></div>
+      <div class="story-copy"><p class="eyebrow">A little about us</p><h2 id="story-title">Made for real life. And all the good bits.</h2><p>We think getting dressed should feel like you. So we find the small makers, the better fabrics, and the pieces that make an ordinary Tuesday feel like something.</p><a class="text-link" href="#newsletter">Get to know us <span aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
+      <p class="eyebrow">Letters from our little corner</p><h2 id="newsletter-title">Good things, occasionally.</h2>
+      <p>New favorites, thoughtful notes, and 10% off your first order.</p>
+      <form class="signup-form"><input type="email" name="email" placeholder="Your email address" aria-label="Your email address" required><button type="submit">Count me in <span aria-hidden="true">→</span></button></form>
+      <p class="signup-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><a class="brand footer-brand" href="#top">SUNDAY<span>.</span>SUPPLY</a><span class="footer-note">Good clothes. Good days. © 2025 Sunday Supply</span><div class="footer-links"><a href="#shop">Shop</a><a href="#story">About</a><a href="mailto:hello@sundaysupply.example">Say hello</a></div></div></footer>
+
+  <div class="overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping bag" aria-hidden="true">
+    <div class="cart-heading"><h2>Your bag <span class="bag-total-count">(0)</span></h2><button class="close-cart" type="button" aria-label="Close shopping bag">×</button></div>
+    <div class="cart-items"><p class="empty-cart">Your bag is taking a little Sunday break.</p></div>
+    <div class="cart-bottom"><div class="cart-subtotal"><span>Subtotal</span><strong>$0.00</strong></div><button class="checkout-button" type="button">Continue to checkout</button></div>
+  </aside>
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const cart = new Map();
+    const bagCount = document.querySelector('.bag-count');
+    const cartDrawer = document.querySelector('.cart-drawer');
+    const overlay = document.querySelector('.overlay');
+    const cartItems = document.querySelector('.cart-items');
+    const toast = document.querySelector('.toast');
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
+    }
+
+    function renderCart() {
+      const count = [...cart.values()].reduce((sum, item) => sum + item.quantity, 0);
+      bagCount.textContent = count;
+      document.querySelector('.bag-total-count').textContent = `(${count})`;
+      const subtotal = [...cart.values()].reduce((sum, item) => sum + item.price * item.quantity, 0);
+      document.querySelector('.cart-subtotal strong').textContent = `$${subtotal.toFixed(2)}`;
+      if (!cart.size) {
+        cartItems.innerHTML = '<p class="empty-cart">Your bag is taking a little Sunday break.</p>';
+        return;
+      }
+      cartItems.innerHTML = [...cart.entries()].map(([name, item]) => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="">
+          <div><div class="cart-item-name">${name}</div><div class="cart-item-price">$${item.price.toFixed(2)}</div>
+            <div class="quantity-control"><button type="button" data-action="decrease" data-name="${name}" aria-label="Decrease ${name} quantity">−</button><span>${item.quantity}</span><button type="button" data-action="increase" data-name="${name}" aria-label="Increase ${name} quantity">+</button></div>
+          </div>
+          <button class="remove-item" type="button" data-action="remove" data-name="${name}">Remove</button>
+        </div>`).join('');
+    }
+
+    function setCartOpen(open) {
+      cartDrawer.classList.toggle('is-open', open);
+      overlay.classList.toggle('is-open', open);
+      cartDrawer.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) cartDrawer.querySelector('.close-cart').focus();
+    }
+
+    document.querySelectorAll('.quick-add').forEach((button) => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.product-card');
+        const { name, price, image } = card.dataset;
+        const item = cart.get(name) || { price: Number(price), image, quantity: 0 };
+        item.quantity += 1;
+        cart.set(name, item);
+        renderCart();
+        showToast(`${name} added to your bag`);
+      });
+    });
+
+    document.querySelector('.bag-button').addEventListener('click', () => setCartOpen(true));
+    document.querySelector('.close-cart').addEventListener('click', () => setCartOpen(false));
+    overlay.addEventListener('click', () => setCartOpen(false));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setCartOpen(false); });
+
+    cartItems.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-action]');
+      if (!button) return;
+      const { action, name } = button.dataset;
+      const item = cart.get(name);
+      if (!item) return;
+      if (action === 'remove' || (action === 'decrease' && item.quantity === 1)) cart.delete(name);
+      else if (action === 'decrease') item.quantity -= 1;
+      else if (action === 'increase') item.quantity += 1;
+      renderCart();
+    });
+
+    document.querySelectorAll('.filter-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-button').forEach((filter) => filter.setAttribute('aria-pressed', String(filter === button)));
+        document.querySelectorAll('.product-card').forEach((card) => {
+          card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
+        });
+      });
+    });
+
+    const searchPanel = document.querySelector('.search-panel');
+    const searchInput = searchPanel.querySelector('input');
+    function toggleSearch(open) {
+      searchPanel.classList.toggle('is-open', open);
+      document.querySelector('.search-trigger').setAttribute('aria-expanded', String(open));
+      if (open) searchInput.focus();
+      else { searchInput.value = ''; document.querySelectorAll('.product-card').forEach((card) => card.hidden = false); }
+    }
+    document.querySelector('.search-trigger').addEventListener('click', () => toggleSearch(!searchPanel.classList.contains('is-open')));
+    document.querySelector('.search-close').addEventListener('click', () => toggleSearch(false));
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('.product-card').forEach((card) => card.hidden = !card.dataset.name.toLowerCase().includes(query));
+    });
+
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelector('.mobile-links');
+    mobileMenu.addEventListener('click', () => {
+      const open = !mobileLinks.classList.contains('is-open');
+      mobileLinks.classList.toggle('is-open', open);
+      mobileMenu.setAttribute('aria-expanded', String(open));
+    });
+    mobileLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      mobileLinks.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.querySelector('.signup-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = new FormData(event.currentTarget).get('email');
+      document.querySelector('.signup-message').textContent = `You're on the list. See you in your inbox, ${email}.`;
+      event.currentTarget.reset();
+    });
+
+    document.querySelector('.checkout-button').addEventListener('click', () => {
+      showToast(cart.size ? 'Checkout is coming soon.' : 'Your bag is empty for now.');
+    });
+  </script>
+</body>
+</html>
